@@ -496,7 +496,9 @@ def construct_bond_cftree(T, compound, cpn, cpn_freq=2, face=100,drop_final_peri
         cftree = cftree.iloc[:-1,:-1]
     else:
         cftree.iloc[:,-1] += face
-        
+    
+    # clean up cf tree to be upper diagonal
+    cftree.values[np.tril_indices_from(cftree, k=-1)] = np.nan
     return cftree
 
 

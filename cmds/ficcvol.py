@@ -36,9 +36,9 @@ def blacks_formula(T,vol,strike,fwd,discount=1,isCall=True):
 
 
 
-def price_caplet(T_rateset,vol,strike,fwd,discount,freq=4,notional=100):
+def price_caplet(T_rateset,vol,strike,fwd,discount,freq=4,notional=100,isCall=True):
     dt = 1/freq
-    price = notional * dt * blacks_formula(T_rateset, vol, strike, fwd, discount)
+    price = notional * dt * blacks_formula(T_rateset, vol, strike, fwd, discount,isCall=isCall)
     return price
 
 
